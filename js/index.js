@@ -12,26 +12,12 @@ var linkRequest = new XMLHttpRequest();
 
   $(function() {
     typed.typed({
-      strings: ["Junying Wang", "CG Researcher", "CV Pursuer", "Game Developer", "Pet Lover"],
+      strings: ["Junying Wang", "Research Enthusiast", "Game Developer", "Pet Lover"],
       typeSpeed: 100,
       loop: true,
     });
   });
 
-// linkRequest.open("GET", "json/links.json", true);
-// linkRequest.onreadystatechange = function () {
-//     if (linkRequest.readyState === 4) {
-//         if (linkRequest.status === 200 || linkRequest.status == 0) {
-//             var html = "";
-//             JSON.parse(linkRequest.responseText).forEach(function (link) {
-//                 console.log(link.name);
-//                 html += "<div class=\"links waves-effect\"><a href=" + link.url + " class=\"black-text valign-wrapper\" target=\"_blank\"><i class=\"link_icon mdi mdi-" + link.icon + "\" style=\"color: " + link.color + "\"></i>&nbsp; " + link.name + "</a></div>";
-//             });
-//             link.innerHTML = html;
-//         }
-//     }
-// };
-// linkRequest.send(null);
 
 
 workRequest.open("GET", "json/items.json", true);
