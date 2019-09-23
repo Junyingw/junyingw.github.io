@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Get to know me",
+        "image": "images/jinli.png",
+        "description" : "Biography part. These pictures I took are lucky fish! Once you see them, wish you good fortune, and also good luck to my future study career :)",
+        "link": "gettoknowme.html"
+	},
+    {
+        "name": "Project",
+        "image": "images/jinli.png",
+        "description" : "Personal projects and team projects, including FPS game, VR game and research project.",
+        "link": "project.html"
+	},
+    {
+        "name": "Portfolio",
+        "image": "images/jinli.png",
+        "description" : "Some demos about animations and games.",
+        "link": "portfolio.html"
+	},
+    {
+        "name": "Blog",
+        "image": "images/jinli.png",
+        "description" : "Some casual notes.",
+        "link": "blog.html"
+	}
+]
