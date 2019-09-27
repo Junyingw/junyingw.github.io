@@ -1,13 +1,13 @@
 [
     {
         "name": "Get to know me",
-        "image": "images/jinli.png",
+        "image": "images/jinli1.png",
         "description" : "Biography part. These pictures I took are lucky fish! Once you see them, wish you good fortune, and also good luck to my future study career :)",
         "link": "gettoknowme.html"
 	},
     {
         "name": "Project",
-        "image": "images/jinli.png",
+        "image": "images/jinli2.png",
         "description" : "Personal projects and team projects, including FPS game, VR game and research project.",
         "link": "project.html"
 	},
