@@ -1,0 +1,142 @@
+* {
+    font-family: 'Saira Semi Condensed', sans-serif;
+}
+/* social media section*/
+#socialMedia{
+   /* width: 100%;
+    height: 100%; */
+}
+.btn{
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30%;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: black;
+    overflow: hidden;
+    position: relative;
+}
+.btn i{
+    line-height: 30px;
+    font-size: 20px;
+    transition: 0.2s linear;
+    color: black;
+
+}
+.btn hover i{
+    transform: scale(1.3);
+    /*color: white;*/
+}
+
+
+/* Profile Image */
+
+#profileImage {
+    width: 233px;
+    height: 233px;
+    margin: auto;
+    margin-top: calc(25%);
+}
+
+/* The various Texts */
+
+#heroName {
+    font-size: 2.2rem;
+}
+
+#description {
+    font-size: 1.3rem;
+}
+
+#portfolioTitle {
+    margin-left: 8px;
+}
+
+#portfolioText {
+    margin-top: 0px;
+    margin-bottom: -30px;
+    font-weight: 500;
+    font-size: 2.2rem;
+}
+
+#firstCategoryText {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 1.4rem;
+}
+
+#portfolioColumn {
+    padding: 24px;
+}
+
+/* Cards */
+.card-main-image,
+.card-image {
+    border-top-left-radius: 2px !important;
+    border-top-right-radius: 2px !important;
+}
+
+.card {
+    border-radius: 2px;
+}
+
+.card-content {
+    border-bottom-left-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+}
+
+/* Breakpoint resizing */
+@media only screen and (max-width: 1260px) {
+    #portfolioText {
+        font-size: 2rem;
+        margin-bottom: -20px;
+    }
+    #firstCategoryText {
+        font-size: 1.2rem;
+    }
+    #heroName {
+        font-size: 2.0rem;
+    }
+    #description {
+        font-size: 1.1rem;
+    }
+    #profileImage {
+        height: 125px;
+        width: 125px;
+        margin-top: calc(30%);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #profileImage {
+        margin-top: calc(10%);
+    }
+    #portfolioTitle {
+        text-align: center;
+    }
+    #portfolioColumn {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+
+
+@media(min-width: 993px) {
+
+	#profileColumn {
+		position: fixed;
+	}
+
+	#portfolioColumn {
+		margin-left: 33.3333333333%;
+	}
+	
+}
+
+

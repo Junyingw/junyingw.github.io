@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./style/portfolio.css">
+	<meta name="google-site-verification" content=" ">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<title>Junying Wang</title>
+</head>
+
+<body>
+	<div class="my-container">
+    <h1> Junying Wang </h1> 
+    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+      <a href="index.html" class="btn btn-default" role="button">Home</a>
+      <a href="project.html" class="btn btn-default" role="button">Project</a>
+      <a href="portfolio.html" class="btn btn-default" role="button">Portfolio</a>
+      <a href="https://medium.com/@junyingw" class="btn btn-default" role="button">Blog</a>
+    </div>
+  <div>
+  
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column"> </div>
+        </div>
+        <div class="flex-row"> </div>
+        <div class="flex-row"> </div>
+		<div class="flex-row">
+        <div class="flex-item flex-column"> </div>
+        </div>
+        <div class="flex-row"> </div>
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin">Portfolio Gallery</h2>
+            <hr>
+            <p class="text">
+             Welcome to my portfolio gallery! Some of demos are parts of my projects and some of them are related to the animations. These animations are related to mass spring systerm, motion capture interpolation methods, simulation with OpenGL, inverse kinematic and parts of my game applications. 
+            </p>
+		</div>
+        </div>
+		  <div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/render.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p>
+              This demo shows some novel-view rendering samples of <a href="https://renderpeople.com/free-3d-people/">RenderPeople</a> dataset. Each subject includes views of horizontal rotations, views of different azimuths and inclinations. During the rendering process, all subjects are rendered under the same lighting settings. This novel-view human body dataset are rendered with Blender. The dataset includes the different views of human body images, camera calibrations, depth maps and normal maps. If you want to know more about the rendering implementation, check the code <a href="https://github.com/Junyingw/renderppl-dataset">here</a>.
+            </p>
+          </div>
+        </div>
+
+      <div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/rollercoaster.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p>
+              This demo is galaxy roller coaster simulation, which is based on Catmull-Rom splines along with OpenGL lighting and texture mapping. Inspired by Space Mountain roller coaster, I set a galaxy dome for the sky texture, and make the texture-mapped wooden crossbars. Constructing the Catmull-Rom spline is based on control matrix and subdividing-find u to generate points between two control points. Besides, you can see the obvious changes of the velocity in terms of height, so when the roller coaster runs up the hill, it will be slow down; when it is downhill, it will speed up in terms of the current height.
+            </p>
+          </div>
+        </div>
+
+
+		<div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/jellocube.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p class="text">
+            This demo is a fancy jello cube! The jello cube can bounce off the walls and you can use mouse to drag the cube, which is a convenient way of interaction. The simulation uses mass spring system to achieve that. The mass spring system for this project contains structural, shear, bend springs and damping forces. The external forces is the force field (trilinear interpolation). With adding mouse drag forces function to certain simulation points, the jello cube can bounce off the walls with the box collision detection. It also contains a function of inclined plane detection and rendering.
+            </p>
+          </div>
+        </div>
+		<div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/mocap.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p class="text">
+             This motion capture video shows three outputs of different interpolation techniques. The skeletons in green color are driven by the original motion capture file. The skeletons in red color are driven by the new motion capture files with different interpolation methods. In this project, I have implemented three interpolation techniques: Bezier Euler interpolation, Linear Quaternion interpolation and Bezier Quaternion interpolation. From the output video, you can see the comparison pair by pair. For more detail on this project, check my Blog here.
+            </p>
+          </div>
+        </div>
+		<div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/ik.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <p class="text">
+             Inverse kinematic is useful in making animations and also plays an important role in robotic area. The demo shows how to implement forward kinematic, inverse kinematic and skinning method with OpenGL. As you can see in this video, each avatar with rendered skeleton has several IK handlers, you can use the handles to move these avatars. I used two skinning algorithm and made a <a href="https://medium.com/@junyingw/comparison-between-linear-blend-skinning-and-dual-quaternion-skinning-369e727fdcf6">comparison</a> between linear blend skinning and dual quaternion skinning method. If you want to know more about the implementation, check the code <a href="https://github.com/Junyingw/Inverse-Kinematics">here</a>.
+            </p>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-column"> </div>
+        </div>
+		<div class="flex-row">
+        <div class="flex-item flex-item-stretch-2 flex-column">
+            <p class="text">
+             Glass breaking part. This animation can be use for many game scenes. For the implementation, I used Blender to design the glass object, which included two kinds of glass. The first one is an intact glass, and the other one is composed by numerous pieces of glass. This animation is built with Unity, and each glass fragment has its own kinematic information. When it is triggered under certain conditions, it will fall down due to the gravity. If you want to check the code, click <a href="https://github.com/Junyingw/Glass-Shatter">here</a>
+            </p>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/glass.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+		<div class="flex-row">
+        <div class="flex-item flex-item-stretch-2 flex-column">
+            <p class="text">
+             When you want to open a door, what do you need? Normally, you need a key or a keypad. This demo shows a keypad application. When you press the key buttons of the keypad, the display screen will show the input numbers. Each key button is covered by a box collider, once you click the button, it will trigger the next process and give users a feedback. Once you enter the correct password, you will open the door! If you want to check the code, click 
+				<a href="https://github.com/Junyingw/Keypad">here</a>.
+            </p>
+        </div>
+          <div class="flex-item flex-item-stretch flex-column">
+            <video preload controls autoplay loop muted playsinline class="image">
+              <source src="vid/keypad.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+<div class="flex-row">
+        <div class="flex-item flex-item-stretch flex-column"> </div>
+        </div>
+        <div class="flex-row"> </div>
+		<div class="flex-row">
+        <div class="flex-item flex-column"> </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width"> </div>
+        </div>
+		<div class="flex-row">
+		<div class="flex-item flex-item-stretch-4 flex-column"> </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-item-stretch flex-column"> </div>
+          <div class="flex-item flex-item-stretch-4 flex-column"> </div>
+        </div>
+        <div class="flex-row">
+          <div class="flex-item flex-item-stretch flex-column">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
