@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Complete 3D Human Reconstruction from a Single Incomplete Image</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://junyingw.github.io/">Junying Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://gorokee.github.io/jsyoon/">Jae Shin Yoon</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://tuanfeng.github.io/">Tuanfeng Y. Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://krsingh.cs.ucdavis.edu/">Krishna Kumar Singh</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cgit.usc.edu/contact/ulrich-neumann/">Ulrich Neumannn</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Southern California,</span>
+            <span class="author-block"><sup>2</sup>Adobe Research</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div style="text-align:center;">
+        <img src="./img/teaser.jpg" style="width:60%; margin:0 auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a method to reconstruct a complete human geometry and texture from an image of a person with only partial body observed, e.g., a torso. The core challenge arises from the occlusion: there exists no pixel to reconstruct where many existing single-view human reconstruction meth- ods are not designed to handle such invisible parts, leading to missing data in 3D. To address this challenge, we intro- duce a novel coarse-to-fine human reconstruction framework. For coarse reconstruction, explicit volumetric features are learned to generate a complete human geometry with 3D con- volutional neural networks conditioned by a 3D body model and the style features from visible parts. An implicit network combines the learned 3D features with the high-quality sur- face normals enhanced from multiviews to produce fine local details, e.g., high-frequency wrinkles. Finally, we perform progressive texture inpainting to reconstruct a complete ap- pearance of the person in a view-consistent way, which is not possible without the reconstruction of a complete geometry. In experiments, we demonstrate that our method can recon- struct high-quality 3D humans, which is robust to occlusion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!--/ Abstract. -->
+
+
+<!-- <section class="section"> -->
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 h2 class="title is-3" style="text-align:center;">Overview</h2>
+     <!--  <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+      <img src="./img/overview.jpg">
+       
+        <div class="content has-text-justified">
+          <p>
+          Given an image I of a person with occlusion and a guiding 3D body pose P, we reconstruct a complete 3D human model G<sub>f</sub> in a coarse-to-fine manner: we first build the volume of image features F by extracting the 2D image features and copying them in a depth direction. This image feature volume is concatenated with the 3D body pose P recorded on the volume. Our 3D CNN G<sub>3d</sub> generates complete and coherent volumetric features whose generative power is enabled by jointly learning with 3D discriminator D<sub>3d</sub> with explicit shape prediction S<sub>3d</sub>. The coarse MLP C produces the coarse yet complete occupancy of the continually sampled 3D points and their intermediate global features F* where we represent the 3D surface by using 0.5 level-set occupancy field. The fine MLP C<sub>f</sub> combines F* and surface normals enhanced from multiviews to output fine-grained occupancy. We also complete the appearance by performing view-progressive texture inpainting.
+          </p>
+        </div>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3" style="text-align:center;">Full Body Image</h2>
+          <video id="full1" autoplay controls muted loop playsinline height="100%">
+            <source src="./vid/full_test1.mp4"type="video/mp4">
+          </video>
+
+          <video id="full2" autoplay controls muted loop playsinline height="100%">
+            <source src="./vid/full_test2.mp4"type="video/mp4">
+          </video>
+
+          <video id="full3" autoplay controls muted loop playsinline height="100%">
+            <source src="./vid/full_test3.mp4"type="video/mp4">
+          </video>
+
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3" style="text-align:center;">Partial Body Image</h2>
+              <video id="full1" autoplay controls muted loop playsinline height="100%">
+                <source src="./vid/partial_test1.mp4"type="video/mp4">
+              </video>
+
+              <video id="full3" autoplay controls muted loop playsinline height="100%">
+                <source src="./vid/partial_test2.mp4"type="video/mp4">
+              </video>
+
+              <video id="full3" autoplay controls muted loop playsinline height="100%">
+                <source src="./vid/partial_test3.mp4"type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+  
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{wang2023completehuman,
+  title={Complete 3D Human Reconstruction from a Single Incomplete Image},
+  author={Wang, Junying and Yoon, Jae Shin and Wang, Tuanfeng Y. and Singh, Krishna Kumar and Neumann, Ulrich },
+  booktitle={CVPR},
+  year={2023}
+}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        The website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io"> Nerfies </a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
