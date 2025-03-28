@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="relighting">
+  <meta name="keywords" content="elements">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comprehensive Relighting</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Comprehensive Relighting:<br>Generalizable and Consistent Monocular Human Relighting and Harmonization</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://junyingw.github.io/">Junying Wang</a><sup>1</sup>,
+                <a href="https://fdjingyuan.github.io/">Jingyuan Liu</a><sup>2</sup>,
+                <a href="https://www.sunxin.name/">Xin Sun</a><sup>2</sup>,
+                <a href="https://krsingh.cs.ucdavis.edu/">Krishna Kumar Singh</a><sup>2</sup>,
+                <a href="https://zhixinshu.github.io/">Zhixin Shu</a><sup>2</sup>,
+                <a href="https://sites.google.com/site/hezhangsprinter/">He Zhang</a><sup>2</sup>,
+                <a href="https://jimeiyang.github.io/">Jimei Yang</a><sup>2</sup>,
+                <a href="http://nxzhao.com/">Nanxuan Zhao</a><sup>2</sup>,
+                <a href="https://tuanfeng.github.io/">Tuanfeng Y. Wang</a><sup>2</sup>,
+                <a>Simon S. Chen</a><sup>2</sup>,
+                <a href="https://cgit.usc.edu/contact/ulrich-neumann/">Ulrich Neumann</a><sup>1</sup>,
+                <a href="https://gorokee.github.io/jsyoon/">Jae Shin Yoon</a><sup>2</sup>
+              </span>
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>University of Southern California,</span>
+                <span class="author-block"><sup>2</sup>Adobe Research</span>
+              </div>
+            </div>
+            <br>
+          <div class="publication-links is-flex is-justify-content-center">
+
+            <!-- arXiv Button -->
+            <a href="" class="external-link button is-dark mx-2">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>  <!-- Academicons arXiv icon -->
+                </span>
+                <span>arXiv</span>
+              </span>
+            </a>
+
+            <!-- PDF Button -->
+            <a href="" class="external-link button is-dark mx-2">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </span>
+            </a>
+            
+            <!-- Supplementary Button -->
+            <a href="" class="external-link button is-dark mx-2">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Supplementary</span>
+              </span>
+            </a>
+            
+            <!-- Video Button -->
+            <a href="" class="external-link button is-dark mx-2">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-video"></i>
+                </span>
+                <span>Video</span>
+              </span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop" style="overflow: visible;">
+      <div class="hero-body" style="padding: 2rem 0;">
+        <!-- Image Container (110% width) -->
+        <div class="is-flex is-justify-content-center" style="width: 100%;">
+          <div class="image" style="width: 101%; margin: 0 -5%;">
+            <img src="./img/teaser.jpg" style="width: 100%; display: block;">
+          </div>
+        </div>
+        
+        <!-- Caption Text -->
+        <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
+          <p class="is-size-6 has-text-grey">
+            We introduce Comprehensive Relighting, a generalizable and consistent model for relighting and harmonization, which controls the lighting property from a single image or video of humans with arbitrary body parts. Given target lighting coefficients, e.g., Spherical harmonics, background scenes, or their combination (insets), our model performs consistent and harmonized relighting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <p class="content has-text-justified">
+        This paper introduces Comprehensive Relighting, the first all-in-one approach that can both control and harmonize the lighting from an image or video of humans with arbitrary body parts from any scene. Building such a generalizable model is extremely challenging due to the lack of dataset, restricting existing image-based relighting models to a specific scenario (e.g., face or static human). To address this challenge, we repurpose a pre-trained diffusion model as a general image prior and jointly model the human relighting and background harmonization in the coarse-to-fine framework. To further enhance the temporal coherence of the relighting, we introduce an unsupervised temporal lighting model that learns the lighting cycle consistency from many real-world videos without any ground truth. In inference time, our temporal lighting module is combined with the diffusion models through the spatio-temporal feature blending algorithms without extra training; and we apply a new guided refinement as a post-processing to preserve the high-frequency details from the input image. In the experiments, Comprehensive Relighting shows a strong generalizability and lighting temporal coherence, outperforming existing image-based human relighting and harmonization methods.
+      </p>
+    </div>
+  </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Our Goal</h2>
+    
+    <!-- Image with Caption -->
+    <div class="has-text-centered mb-5">
+      <figure class="image" style="max-width: 1000px; margin: 0 auto;">
+        <img src="./img/static_goal.jpg" alt="Static image relighting and harmonization">
+        <figcaption class="is-size-6 has-text-grey mt-2">
+          <em>Static Image Relighting and Harmonization</em>
+        </figcaption>
+      </figure>
+    </div>
+    
+    <!-- Video with Caption -->
+    <div class="has-text-centered mb-5">
+      <div class="video-container" style="position: relative; padding-top: 56.25%; max-width: 1000px; margin: 0 auto;">
+        <video controls autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <source src="./video/video_goal.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6 has-text-grey mt-2">
+          <em>Video Relighting and Harmonization</em>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Description Text -->
+    <div class="content has-text-justified" style="max-width: 1000px; margin: 2rem auto 0;">
+      <p>
+        We introduce a generalizable human relighting model that can control the lighting from an image or video of humans with arbitrary body parts, which are well-harmonized with a conditioning space as shown.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional styling for consistency */
+  .video-container, .image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  figcaption, .video-container p {
+    font-style: italic;
+  }
+</style>
+
+
+  <!-- Overview -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop" style="overflow: visible;">
+      <div class="hero-body" style="padding: 2rem 0;">
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <!-- Image Container (110% width) -->
+        <div class="is-flex is-justify-content-center" style="width: 100%;">
+          <div class="image" style="width: 101%; margin: 0 -5%;">
+            <img src="./img/overview.jpg" style="width: 100%; display: block;">
+          </div>
+        </div>
+        
+        <!-- Caption Text -->
+        <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
+          <p>
+           (a) Given an input image of humans with coarse lighting and background image, our diffusion model generates the relit images harmonized with background scenes. (b) The external temporal modules learn the temporal cycle consistency from many real-world videos to construct temporal lighting features. (c) In inference time, we blend the features from lighting and temporal modules spatially and temporally to enable coherent and generalizable human relighting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Combined Sections with Single Title -->
+<section class="section">
+  <div class="container">
+    <div class="column">
+      <div class="content">
+        <h2 class="title is-3 has-text-centered mb-5">Static Image with Rotating Light</h2>
+        
+        <!-- First Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">Portrait and Half-body Scenario</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button rot-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="rot-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="./video/rot1-1.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/rot1-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button rot-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="rot-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot rot-video-dot active" data-index="0"></span>
+            <span class="video-dot rot-video-dot" data-index="1"></span>
+          </div>
+        </div>
+
+        <!-- Second Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">Full-body Scenario</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button body-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="body-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="./video/rot2-1.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/rot2-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button body-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="body-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot body-video-dot active" data-index="0"></span>
+            <span class="video-dot body-video-dot" data-index="1"></span>
+          </div>
+        </div>
+
+        <!-- Third Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">Multi-person Scenario</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button object-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="object-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="./video/rot3-1-1.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/rot3-2-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button object-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="object-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot object-video-dot active" data-index="0"></span>
+            <span class="video-dot object-video-dot" data-index="1"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Second Section -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">Video Relighting</h2>
+          
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button wild-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="wild-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="wild-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="./video/vid1.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="wild-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/vid2.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="wild-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/vid5.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="wild-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/vid3.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="wild-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="./video/vid4.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button wild-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="wild-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot wild-video-dot active" data-index="0"></span>
+            <span class="video-dot wild-video-dot" data-index="1"></span>
+            <span class="video-dot wild-video-dot" data-index="2"></span>
+            <span class="video-dot wild-video-dot" data-index="3"></span>
+            <span class="video-dot wild-video-dot" data-index="4"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // First section (rot) controller
+  const rotVideos = document.querySelectorAll('.rot-video-item');
+  const rotDots = document.querySelectorAll('.rot-video-dot');
+  const rotPrevBtn = document.querySelector('.rot-prev-video');
+  const rotNextBtn = document.querySelector('.rot-next-video');
+  let rotCurrentIndex = 0;
+  
+  // Second section (body) controller
+  const bodyVideos = document.querySelectorAll('.body-video-item');
+  const bodyDots = document.querySelectorAll('.body-video-dot');
+  const bodyPrevBtn = document.querySelector('.body-prev-video');
+  const bodyNextBtn = document.querySelector('.body-next-video');
+  let bodyCurrentIndex = 0;
+  
+  // Third section (object) controller
+  const objectVideos = document.querySelectorAll('.object-video-item');
+  const objectDots = document.querySelectorAll('.object-video-dot');
+  const objectPrevBtn = document.querySelector('.object-prev-video');
+  const objectNextBtn = document.querySelector('.object-next-video');
+  let objectCurrentIndex = 0;
+  
+  // Wild section (hero) controller
+  const wildVideos = document.querySelectorAll('.wild-video-item');
+  const wildDots = document.querySelectorAll('.wild-video-dot');
+  const wildPrevBtn = document.querySelector('.wild-prev-video');
+  const wildNextBtn = document.querySelector('.wild-next-video');
+  let wildCurrentIndex = 0;
+  
+  // Initialize all sections
+  showVideo(rotVideos, rotDots, rotCurrentIndex);
+  showVideo(bodyVideos, bodyDots, bodyCurrentIndex);
+  showVideo(objectVideos, objectDots, objectCurrentIndex);
+  showVideo(wildVideos, wildDots, wildCurrentIndex);
+  
+  // First section event listeners
+  rotPrevBtn.addEventListener('click', function() {
+    rotCurrentIndex = (rotCurrentIndex - 1 + rotVideos.length) % rotVideos.length;
+    showVideo(rotVideos, rotDots, rotCurrentIndex);
+  });
+  
+  rotNextBtn.addEventListener('click', function() {
+    rotCurrentIndex = (rotCurrentIndex + 1) % rotVideos.length;
+    showVideo(rotVideos, rotDots, rotCurrentIndex);
+  });
+  
+  rotDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      rotCurrentIndex = index;
+      showVideo(rotVideos, rotDots, rotCurrentIndex);
+    });
+  });
+  
+  // Second section event listeners
+  bodyPrevBtn.addEventListener('click', function() {
+    bodyCurrentIndex = (bodyCurrentIndex - 1 + bodyVideos.length) % bodyVideos.length;
+    showVideo(bodyVideos, bodyDots, bodyCurrentIndex);
+  });
+  
+  bodyNextBtn.addEventListener('click', function() {
+    bodyCurrentIndex = (bodyCurrentIndex + 1) % bodyVideos.length;
+    showVideo(bodyVideos, bodyDots, bodyCurrentIndex);
+  });
+  
+  bodyDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      bodyCurrentIndex = index;
+      showVideo(bodyVideos, bodyDots, bodyCurrentIndex);
+    });
+  });
+  
+  // Third section event listeners
+  objectPrevBtn.addEventListener('click', function() {
+    objectCurrentIndex = (objectCurrentIndex - 1 + objectVideos.length) % objectVideos.length;
+    showVideo(objectVideos, objectDots, objectCurrentIndex);
+  });
+  
+  objectNextBtn.addEventListener('click', function() {
+    objectCurrentIndex = (objectCurrentIndex + 1) % objectVideos.length;
+    showVideo(objectVideos, objectDots, objectCurrentIndex);
+  });
+  
+  objectDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      objectCurrentIndex = index;
+      showVideo(objectVideos, objectDots, objectCurrentIndex);
+    });
+  });
+  
+  // Wild section event listeners
+  wildPrevBtn.addEventListener('click', function() {
+    wildCurrentIndex = (wildCurrentIndex - 1 + wildVideos.length) % wildVideos.length;
+    showVideo(wildVideos, wildDots, wildCurrentIndex);
+  });
+  
+  wildNextBtn.addEventListener('click', function() {
+    wildCurrentIndex = (wildCurrentIndex + 1) % wildVideos.length;
+    showVideo(wildVideos, wildDots, wildCurrentIndex);
+  });
+  
+  wildDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      wildCurrentIndex = index;
+      showVideo(wildVideos, wildDots, wildCurrentIndex);
+    });
+  });
+  
+  // Shared showVideo function
+  function showVideo(videos, dots, index) {
+    videos.forEach(video => {
+      video.style.display = 'none';
+      video.pause();
+    });
+    videos[index].style.display = 'block';
+    videos[index].currentTime = 0;
+    videos[index].play();
+    
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+});
+</script>
+
+<style>
+  .arrow-button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .arrow-button:hover {
+    background: #f5f5f5;
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .arrow-button:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  .video-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .video-dot.active {
+    background: #3273dc;
+    transform: scale(1.2);
+  }
+  
+  .video-dot:hover {
+    transform: scale(1.2);
+  }
+  
+  @media (max-width: 768px) {
+    .arrow-button {
+      width: 30px;
+      height: 30px;
+      left: -15px;
+    }
+    
+    .arrow-button[style*="right"] {
+      right: -15px;
+    }
+  }
+</style>
+
+
+
+<!--   <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title">BibTeX</h2>
+      <pre><code></code></pre>
+    </div> -->
+
+<footer class="footer">
+  <div class="container has-text-centered">
+    <p class="is-size-6 has-text-grey">
+      The website template is borrowed from 
+      <a href="https://github.com/nerfies/nerfies.github.io" 
+         >
+         Nerfies
+      </a>.
+    </p>
+    <p class="is-size-6 has-text-grey mt-2">
+      All orginal test images and videos are sourced from 
+      <a href="https://www.pexels.com/" 
+         target="_blank"> 
+         Pexels
+      </a>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
