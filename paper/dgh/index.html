@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="dgh">
+  <meta name="keywords" content="elements">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DGH</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              DGH: Dynamic Gaussian Hair 
+            </h1>
+
+            <h2 class="title is-3 publication-title" style="color: #008bf5">
+              NeurIPS 2025
+            </h2>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://junyingw.github.io/">Junying Wang</a><sup>1,2</sup>,
+                <a href="">Yuanlu Xu</a><sup>2</sup>,
+                <a href="">Edith Tretschk</a><sup>2</sup>,
+                <a href="">Ziyan Wang</a><sup>2</sup>,
+                <a href="">Anastasia Ianina</a><sup>2</sup>,
+                <a href="">Aljaz Bozic</a><sup>2</sup>,
+                <a href="">Ulrich Neumann</a><sup>2</sup>,
+                <a href="">Tony Tung</a><sup>2</sup>,
+              </span>
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>University of Southern California,</span>
+                <span class="author-block"><sup>2</sup>Meta Inc.</span>
+              </div>
+            </div>
+            <br>
+          <div class="publication-links is-flex is-justify-content-center">
+
+            <!-- PDF Button (placeholder) -->
+            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Paper link placeholder">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span>
+              </span>
+            </a>
+
+            <!-- Supplementary Button (placeholder) -->
+            <a href="#" class="external-link button is-dark mx-2" aria-label="Supplementary link placeholder">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-file-alt"></i>
+                </span>
+                <span>Supplementary</span>
+              </span>
+            </a>
+
+            <!-- Video Button (placeholder) -->
+            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Video link placeholder">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-video"></i>
+                </span>
+                <span>Video</span>
+              </span>
+            </a>
+
+            <!-- Poster Button (placeholder) -->
+            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Poster link placeholder">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-image"></i>
+                </span>
+                <span>Poster</span>
+              </span>
+            </a>
+
+            <!-- Code Button (placeholder) -->
+            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Code link placeholder">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-image"></i>
+                </span>
+                <span>Code</span>
+              </span>
+            </a>
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop" style="overflow: visible;">
+      <div class="hero-body" style="padding: 2rem 0;">
+        <!-- Image Container (110% width) -->
+        <div class="is-flex is-justify-content-center" style="width: 100%;">
+          <div class="image" style="width: 101%; margin: 0 -5%;">
+            <img src="./img/teaser.jpeg" style="width: 100%; display: block;" alt="Teaser image placeholder">
+          </div>
+        </div>
+        
+        <!-- Caption Text (placeholder) -->
+        <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
+          <p class="is-size-6 has-text-grey">
+            <em>[Teaser caption placeholder]</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <p class="content has-text-justified">
+        The creation of photorealistic dynamic hair remains a major challenge in digital human modeling because of the complex motions, occlusions, and light scattering. 
+        Existing methods often resort to static capture and physics-based models that do not scale as they require manual parameter fine-tuning to handle the diversity of hairstyles and motions, 
+        and heavy computation to obtain high-quality appearance. In this paper, we present Dynamic Gaussian Hair (DGH), a novel framework that efficiently learns hair dynamics and appearance. 
+        We propose: (1) a coarse-to-fine model that learns temporally coherent hair motion dynamics across diverse hairstyles; 
+        (2) a strand-guided optimization module that learns a dynamic 3D Gaussian representation for hair appearance with support for differentiable rendering, 
+        enabling gradient-based learning of view-consistent appearance under motion. Unlike prior simulation-based pipelines, our approach is fully data-driven, 
+        scales with training data, and generalizes across various hairstyles and head motion sequences. Additionally, DGH can be seamlessly integrated into a 3D Gaussian avatar framework, 
+        enabling realistic, animatable hair for high-fidelity avatar representation. DGH achieves promising geometry and appearance results, providing a scalable, data-driven alternative to physics-based simulation and rendering.
+      </p>
+    </div>
+  </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Our Goal</h2>
+    
+    <!-- Image with Caption -->
+    <div class="has-text-centered mb-5">
+      <figure class="image" style="max-width: 1000px; margin: 0 auto;">
+        <img src="./img/static_goal.jpg" alt="Dynamic Hair">
+        <figcaption class="is-size-6 has-text-grey mt-2">
+          <em>[Image caption placeholder]</em>
+        </figcaption>
+      </figure>
+    </div>
+    
+    <!-- Video with Caption -->
+    <div class="has-text-centered mb-5">
+      <div class="video-container" style="position: relative; padding-top: 56.25%; max-width: 1000px; margin: 0 auto;">
+        <video controls autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6 has-text-grey mt-2">
+          <em>[Video caption placeholder]</em>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Description Text -->
+    <div class="content has-text-justified" style="max-width: 1000px; margin: 2rem auto 0;">
+      <p>
+        <!-- [Description placeholder] -->
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional styling for consistency */
+  .video-container, .image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  figcaption, .video-container p {
+    font-style: italic;
+  }
+</style>
+
+
+  <!-- Overview -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop" style="overflow: visible;">
+      <div class="hero-body" style="padding: 2rem 0;">
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <!-- Image Container (110% width) -->
+        <div class="is-flex is-justify-content-center" style="width: 100%;">
+          <div class="image" style="width: 101%; margin: 0 -5%;">
+            <img src="./img/overview.jpg" style="width: 100%; display: block;" alt="Overview image placeholder">
+          </div>
+        </div>
+        
+        <!-- Caption Text (placeholder) -->
+        <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
+          <p><em>[Overview caption placeholder]</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Combined Sections with Single Title -->
+<section class="section">
+  <div class="container">
+    <div class="column">
+      <div class="content">
+        <h2 class="title is-3 has-text-centered mb-5">Demo</h2>
+        
+        <!-- First Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo1</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button rot-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="rot-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button rot-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="rot-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot rot-video-dot active" data-index="0"></span>
+            <span class="video-dot rot-video-dot" data-index="1"></span>
+          </div>
+
+          <!-- Caption (placeholder) -->
+          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
+        </div>
+
+        <!-- Second Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo2</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button body-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="body-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button body-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="body-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
+            <span class="video-dot body-video-dot active" data-index="0"></span>
+            <span class="video-dot body-video-dot" data-index="1"></span>
+          </div>
+
+          <!-- Caption (placeholder) -->
+          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
+        </div>
+
+        <!-- Third Video Section -->
+        <div class="mb-6">
+          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo3</p>
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button object-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="object-video-container" style="width: 100%; margin: 0 auto;">
+              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
+                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
+              </video>
+            </div>
+            
+            <button class="arrow-button object-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          
+          <div class="object-dots-container" style="display: flex; justify-content: center, margin-top: 15px;">
+            <span class="video-dot object-video-dot active" data-index="0"></span>
+            <span class="video-dot object-video-dot" data-index="1"></span>
+          </div>
+
+          <!-- Caption (placeholder) -->
+          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Second Section -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3 has-text-centered">Video Demo</h2>
+          
+          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
+            <button class="arrow-button wild-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            
+            <div class="wild-video-container" style="width: 100%; margin: 0 auto;">
