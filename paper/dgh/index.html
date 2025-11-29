@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DGH</title>
 
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,6 +16,7 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
+  <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -24,20 +26,46 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
+  <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .video-container, .image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    figcaption, .video-container p {
+      font-style: italic;
+    }
+    .video-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #3273dc;
+      margin: 0 4px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .video-dot.active {
+      background-color: #3273dc;
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Title / Header -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">
-              DGH: Dynamic Gaussian Hair 
+              DGH: Dynamic Gaussian Hair
             </h1>
 
             <h2 class="title is-3 publication-title" style="color: #008bf5">
@@ -54,7 +82,7 @@
                 <a href="">Aljaz Bozic</a><sup>2</sup>,
                 <br>
                 <a href="">Ulrich Neumann</a><sup>1</sup>,
-                <a href="">Tony Tung</a><sup>2</sup>,
+                <a href="">Tony Tung</a><sup>2</sup>
               </span>
               <br>
               <div class="is-size-5 publication-authors">
@@ -62,60 +90,63 @@
                 <span class="author-block"><sup>2</sup>Meta Reality Labs Research</span>
               </div>
             </div>
+
             <br>
-          <div class="publication-links is-flex is-justify-content-center">
 
-            <!-- PDF Button (placeholder) -->
-            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Paper link placeholder">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="fas fa-file-pdf"></i>
+            <!-- Top Links -->
+            <div class="publication-links is-flex is-justify-content-center">
+
+              <!-- PDF Button (placeholder) -->
+              <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Paper link placeholder">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
                 </span>
-                <span>Paper</span>
-              </span>
-            </a>
+              </a>
 
-            <!-- Supplementary Button (placeholder) -->
-            <a href="#" class="external-link button is-dark mx-2" aria-label="Supplementary link placeholder">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="fas fa-file-alt"></i>
+              <!-- Supplementary Button (placeholder) -->
+              <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Supplementary link placeholder">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-file-alt"></i>
+                  </span>
+                  <span>Supplementary</span>
                 </span>
-                <span>Supplementary</span>
-              </span>
-            </a>
+              </a>
 
-            <!-- Video Button (placeholder) -->
-            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Video link placeholder">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="fas fa-video"></i>
+              <!-- Video Button (placeholder) -->
+              <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Video link placeholder">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-video"></i>
+                  </span>
+                  <span>Video</span>
                 </span>
-                <span>Video</span>
-              </span>
-            </a>
+              </a>
 
-            <!-- Poster Button (placeholder) -->
-            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Poster link placeholder">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="fas fa-image"></i>
+              <!-- Poster Button (placeholder) -->
+              <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Poster link placeholder">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-image"></i>
+                  </span>
+                  <span>Poster</span>
                 </span>
-                <span>Poster</span>
-              </span>
-            </a>
+              </a>
 
-            <!-- Code Button (placeholder) -->
-            <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Code link placeholder">
-              <span class="icon-text">
-                <span class="icon">
-                  <i class="fas fa-image"></i>
+              <!-- Code Button (placeholder) -->
+              <a href="#" class="external-link button is-dark mx-2" target="_blank" aria-label="Code link placeholder">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-code"></i>
+                  </span>
+                  <span>Code</span>
                 </span>
-                <span>Code</span>
-              </span>
-            </a>
+              </a>
 
-          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -129,235 +160,222 @@
         <!-- Image Container (110% width) -->
         <div class="is-flex is-justify-content-center" style="width: 100%;">
           <div class="image" style="width: 101%; margin: 0 -5%;">
-            <img src="./img/teaser.jpeg" style="width: 100%; display: block;" alt="Teaser image placeholder">
+            <img src="./img/teaser.png" style="width: 100%; display: block;" alt="Teaser image placeholder">
           </div>
         </div>
-        
-        <!-- Caption Text (placeholder) -->
+
+        <!-- Caption Text -->
         <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
-          <p class="is-size-6 has-text-grey">
-            <em>[Teaser caption placeholder]</em>
+          <p class="content has-text-justified">
+            Dynamic Gaussian Hair (DGH) is a framework that learns dynamic deformation and photorealistic novel-view synthesis of arbitrary hairstyles driven by head motions, while respecting upper-body collision.
+            At runtime, given a hairstyle and head motion (a), DGH infers initial hair deformations (b), refines the deformations with dynamics (c), and generates 3D Gaussian splats to achieve photorealistic novel-view synthesis (d).
           </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Abstract -->
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Abstract</h2>
       <p class="content has-text-justified">
-        The creation of photorealistic dynamic hair remains a major challenge in digital human modeling because of the complex motions, occlusions, and light scattering. 
-        Existing methods often resort to static capture and physics-based models that do not scale as they require manual parameter fine-tuning to handle the diversity of hairstyles and motions, 
-        and heavy computation to obtain high-quality appearance. In this paper, we present Dynamic Gaussian Hair (DGH), a novel framework that efficiently learns hair dynamics and appearance. 
-        We propose: (1) a coarse-to-fine model that learns temporally coherent hair motion dynamics across diverse hairstyles; 
-        (2) a strand-guided optimization module that learns a dynamic 3D Gaussian representation for hair appearance with support for differentiable rendering, 
-        enabling gradient-based learning of view-consistent appearance under motion. Unlike prior simulation-based pipelines, our approach is fully data-driven, 
-        scales with training data, and generalizes across various hairstyles and head motion sequences. Additionally, DGH can be seamlessly integrated into a 3D Gaussian avatar framework, 
+        The creation of photorealistic dynamic hair remains a major challenge in digital human modeling because of the complex motions, occlusions, and light scattering.
+        Existing methods often resort to static capture and physics-based models that do not scale as they require manual parameter fine-tuning to handle the diversity of hairstyles and motions,
+        and heavy computation to obtain high-quality appearance. In this paper, we present Dynamic Gaussian Hair (DGH), a novel framework that efficiently learns hair dynamics and appearance.
+        We propose: (1) a coarse-to-fine model that learns temporally coherent hair motion dynamics across diverse hairstyles;
+        (2) a strand-guided optimization module that learns a dynamic 3D Gaussian representation for hair appearance with support for differentiable rendering,
+        enabling gradient-based learning of view-consistent appearance under motion. Unlike prior simulation-based pipelines, our approach is fully data-driven,
+        scales with training data, and generalizes across various hairstyles and head motion sequences. Additionally, DGH can be seamlessly integrated into a 3D Gaussian avatar framework,
         enabling realistic, animatable hair for high-fidelity avatar representation. DGH achieves promising geometry and appearance results, providing a scalable, data-driven alternative to physics-based simulation and rendering.
       </p>
     </div>
   </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Our Goal</h2>
-    
-    <!-- Image with Caption -->
-    <div class="has-text-centered mb-5">
-      <figure class="image" style="max-width: 1000px; margin: 0 auto;">
-        <img src="./img/static_goal.jpg" alt="Dynamic Hair">
-        <figcaption class="is-size-6 has-text-grey mt-2">
-          <em>[Image caption placeholder]</em>
-        </figcaption>
-      </figure>
-    </div>
-    
-    <!-- Video with Caption -->
-    <div class="has-text-centered mb-5">
-      <div class="video-container" style="position: relative; padding-top: 56.25%; max-width: 1000px; margin: 0 auto;">
-        <video controls autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-          <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="is-size-6 has-text-grey mt-2">
-          <em>[Video caption placeholder]</em>
+  <!-- Our Goal -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Our Goal</h2>
+
+      <!-- Goal Video (poster shows chosen frame, click to play) -->
+      <div class="has-text-centered mb-5">
+        <figure class="image" style="max-width: 1000px; margin: 0 auto;">
+          <video
+            id="goal-video"
+            src="./video/goal.mp4"
+            poster="./img/goal.png"
+            style="width: 100%; height: auto; display: block;"
+            controls
+            muted
+            loop
+            playsinline
+          >
+            Your browser does not support the video tag.
+          </video>
+        </figure>
+      </div>
+
+      <!-- Description Text -->
+      <div class="content has-text-justified" style="max-width: 1000px; margin: 2rem auto 0;">
+        <p>
+        Here is our goal: Given a canonical groom and head pose, our model generates hair deformation, adds hair dynamics and enables novel view synthesis of dynamic hair with 3D Gaussian splatting.
         </p>
       </div>
     </div>
-    
-    <!-- Description Text -->
-    <div class="content has-text-justified" style="max-width: 1000px; margin: 2rem auto 0;">
-      <p>
-        <!-- [Description placeholder] -->
-      </p>
-    </div>
-  </div>
-</section>
-
-<style>
-  /* Optional styling for consistency */
-  .video-container, .image {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  figcaption, .video-container p {
-    font-style: italic;
-  }
-</style>
-
+  </section>
 
   <!-- Overview -->
   <section class="hero teaser">
     <div class="container is-max-desktop" style="overflow: visible;">
       <div class="hero-body" style="padding: 2rem 0;">
         <h2 class="title is-3 has-text-centered">Overview</h2>
-        <!-- Image Container (110% width) -->
+
+        <!-- Image Container (slightly wider than text) -->
         <div class="is-flex is-justify-content-center" style="width: 100%;">
           <div class="image" style="width: 101%; margin: 0 -5%;">
-            <img src="./img/overview.jpg" style="width: 100%; display: block;" alt="Overview image placeholder">
+            <img src="./img/overview.png"
+                 style="width: 100%; display: block;"
+                 alt="Framework overview of the Dynamic Gaussian Hair (DGH) model">
           </div>
         </div>
-        
-        <!-- Caption Text (placeholder) -->
+
+        <!-- Caption Text -->
         <div style="margin-top: 1.5rem; max-width: 100%; margin-left: auto; margin-right: auto;">
-          <p><em>[Overview caption placeholder]</em></p>
+          <p class="has-text-justified">
+            <strong>Framework Overview.</strong>
+            DGH learns hair deformation dynamics and photorealistic appearance.
+            <strong>Stage I: Coarse-to-Fine Dynamic Hair Modeling.</strong>
+            The input hair model and the upper body are transformed into a canonical hair volume
+            V<sub>hair</sub><sup>rigid</sup> and a pose volume V<sub>pose</sub>, respectively.
+            A coarse-to-fine strategy then deforms the hair model. At the coarse stage, points
+            p<sub>i</sub> are sampled from the rigidly transformed hair, and interpolated features from
+            E<sub>pose</sub>, E<sub>hair</sub>, head pose H, and positional encoding E(p) are concatenated
+            and fed into an MLP M to predict displacements &Delta;p, producing deformed hair points
+            P<sub>hair</sub>. The fine stage refines hair deformation with dynamics by estimating flow
+            F<sub>flow</sub><sup>t</sup> through cross-attention between volumetric features from previous
+            frames V<sub>hair</sub><sup>t-2</sup> and V<sub>hair</sub><sup>t-1</sup>, ensuring smooth temporal transitions.
+            <strong>Stage II: Appearance Optimization.</strong>
+            We train an MLP D to predict color c', scale s', and opacity &alpha;' of 3D Gaussian splats
+            from features of the deformed hair. Differentiable rasterization leverages this appearance
+            model to synthesize high-quality renderings that adapt to hair movement and occlusion dynamics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Demo (YouTube) -->
+  <section class="hero is-light is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-10 has-text-centered">
+            <h2 class="title is-3">Video Demo</h2>
+            <div class="video" style="max-width: 960px; margin: 0 auto;">
+              <iframe
+                class="has-ratio"
+                width="960"
+                height="540"
+                src="https://www.youtube.com/embed/oh83I5pz6a0?start=1"
+                title="Dynamic Gaussian Hair (DGH) Video Demo"
+                frameborder="0"
+                style="width: 100%; height: 540px;"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <p class="is-size-6 has-text-grey has-text-centered mt-2">
+              <em>Video demo of Dynamic Gaussian Hair (DGH).</em>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 
-<!-- Combined Sections with Single Title -->
-<section class="section">
-  <div class="container">
-    <div class="column">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered mb-5">Demo</h2>
-        
-        <!-- First Video Section -->
-        <div class="mb-6">
-          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo1</p>
-          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
-            <button class="arrow-button rot-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            
-            <div class="rot-video-container" style="width: 100%; margin: 0 auto;">
-              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-              <video poster="" class="rot-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-            </div>
-            
-            <button class="arrow-button rot-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-          
-          <div class="rot-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
-            <span class="video-dot rot-video-dot active" data-index="0"></span>
-            <span class="video-dot rot-video-dot" data-index="1"></span>
-          </div>
 
-          <!-- Caption (placeholder) -->
-          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
-        </div>
-
-        <!-- Second Video Section -->
-        <div class="mb-6">
-          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo2</p>
-          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
-            <button class="arrow-button body-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            
-            <div class="body-video-container" style="width: 100%; margin: 0 auto;">
-              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-              <video poster="" class="body-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-            </div>
-            
-            <button class="arrow-button body-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-          
-          <div class="body-dots-container" style="display: flex; justify-content: center; margin-top: 15px;">
-            <span class="video-dot body-video-dot active" data-index="0"></span>
-            <span class="video-dot body-video-dot" data-index="1"></span>
-          </div>
-
-          <!-- Caption (placeholder) -->
-          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
-        </div>
-
-        <!-- Third Video Section -->
-        <div class="mb-6">
-          <p class="subtitle is-4 has-text-centered has-text-grey mb-4">demo3</p>
-          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
-            <button class="arrow-button object-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            
-            <div class="object-video-container" style="width: 100%; margin: 0 auto;">
-              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: block;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-              <video poster="" class="object-video-item" autoplay controls muted loop playsinline style="width: 100%; display: none;">
-                <source src="PATH/TO/VIDEO.mp4" type="video/mp4">
-              </video>
-            </div>
-            
-            <button class="arrow-button object-next-video" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 18L15 12L9 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-          
-          <div class="object-dots-container" style="display: flex; justify-content: center, margin-top: 15px;">
-            <span class="video-dot object-video-dot active" data-index="0"></span>
-            <span class="video-dot object-video-dot" data-index="1"></span>
-          </div>
-
-          <!-- Caption (placeholder) -->
-          <p class="is-size-6 has-text-grey has-text-centered mt-2"><em>[Section caption placeholder]</em></p>
-        </div>
+  <!-- BibTeX Reference (end of page)
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
+      <div class="content" style="max-width: 900px; margin: 0 auto;">
+        <p class="has-text-centered">
+          If you find our work useful, please cite:
+        </p>
+        <pre><code>@inproceedings{wang2025dgh,
+  title     = {Dynamic Gaussian Hair: Learning Photorealistic, Animatable Hair with 3D Gaussian Splatting},
+  author    = {Wang, Junying and Xu, Yuanlu and Tretschk, Edith and Wang, Ziyan
+               and Ianina, Anastasia and Bozic, Aljaz and Neumann, Ulrich and Tung, Tony},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2025}
+}</code></pre>
       </div>
     </div>
-  </div>
-</section>
+  </section> -->
 
-<!-- Second Section -->
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3 has-text-centered">Video Demo</h2>
-          
-          <div class="video-wrapper" style="position: relative; max-width: 980px; margin: 0 auto;">
-            <button class="arrow-button wild-prev-video" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); z-index: 10;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="#3273dc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            
-            <div class="wild-video-container" style="width: 100%; margin: 0 auto;">
+  <!-- Simple JS to switch videos for each carousel (harmless if containers don't exist yet) -->
+  <script>
+    function setupVideoCarousel(containerSelector, itemSelector, dotSelector, prevSelector, nextSelector) {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const items = container.querySelectorAll(itemSelector);
+      const dots = document.querySelectorAll(dotSelector);
+      const prevBtn = document.querySelector(prevSelector);
+      const nextBtn = document.querySelector(nextSelector);
+
+      if (items.length === 0) return;
+
+      let currentIndex = 0;
+
+      function showIndex(i) {
+        items.forEach((vid, idx) => {
+          vid.style.display = (idx === i) ? "block" : "none";
+          if (idx === i) {
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+        dots.forEach((dot, idx) => {
+          if (idx === i) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        });
+        currentIndex = i;
+      }
+
+      function next() {
+        const nextIndex = (currentIndex + 1) % items.length;
+        showIndex(nextIndex);
+      }
+
+      function prev() {
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        showIndex(prevIndex);
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", prev);
+      if (nextBtn) nextBtn.addEventListener("click", next);
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => showIndex(idx));
+      });
+
+      // Initialize first video visible
+      showIndex(0);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      setupVideoCarousel(".rot-video-container", ".rot-video-item", ".rot-video-dot", ".rot-prev-video", ".rot-next-video");
+      setupVideoCarousel(".body-video-container", ".body-video-item", ".body-video-dot", ".body-prev-video", ".body-next-video");
+      setupVideoCarousel(".object-video-container", ".object-video-item", ".object-video-dot", ".object-prev-video", ".object-next-video");
+      setupVideoCarousel(".wild-video-container", ".wild-video-item", ".wild-video-dot", ".wild-prev-video", ".wild-next-video");
+    });
+  </script>
+</body>
+</html>
