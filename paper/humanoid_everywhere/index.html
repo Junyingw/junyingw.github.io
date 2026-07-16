@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Humanoid Everywhere: an automated Real2Sim data generator that turns a single smartphone capture into an open-ended, fully labeled supply of contact-rich humanoid loco-manipulation data.">
+  <meta name="keywords" content="Humanoid, Real2Sim, 3D Gaussian Splatting, Robot Learning, Loco-Manipulation, Data Generation, VLA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Humanoid Everywhere: Large-Scale Real-to-Sim Environment and Data Generator for Humanoid Loco-Manipulation</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#129302;</text></svg>">
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- JS -->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <style>
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --ink: #1f2937;
+    }
+    body {
+      color: var(--ink);
+    }
+    .publication-title {
+      line-height: 1.25;
+    }
+    .venue-badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: var(--accent-dark);
+      border: 1px solid #bfdbfe;
+      border-radius: 999px;
+      padding: 0.35rem 1.1rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+    .figure-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+      background: #fff;
+    }
+    .figure-card img, .figure-card video {
+      width: 100%;
+      display: block;
+    }
+    .caption {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-top: 0.9rem;
+    }
+    .caption strong { color: var(--ink); }
+    .section-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .goal-box {
+      border-left: 4px solid var(--accent);
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      font-size: 1.1rem;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+    .stat-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1.1rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .stat-card .num {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      line-height: 1.15;
+    }
+    .stat-card .lbl {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+    }
+    .contrib-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1.4rem 1.5rem;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .contrib-card .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      margin-bottom: 0.9rem;
+    }
+    .contrib-card h4 {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .pipeline-step h4 {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .pipeline-step .step-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      margin-right: 0.6rem;
+      font-size: 1rem;
+    }
+    table.results-table {
+      margin: 0 auto;
+      background: #fff;
+    }
+    table.results-table th {
+      background: #f1f5f9;
+    }
+    table.results-table td, table.results-table th {
+      padding: 0.6rem 1.2rem;
+    }
+    .highlight-row {
+      background: #eff6ff;
+      font-weight: 600;
+    }
+    .table-scroll { overflow-x: auto; }
+    .hero.is-light-alt {
+      background-color: #f8fafc;
+    }
+    .footer-note {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== Hero / Title ===================== -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <div class="venue-badge">RSS 2026 Workshop &middot; Data-Centric Robotics</div>
+
+            <h1 class="title is-1 publication-title" style="font-size: 2.4rem;">
+              Humanoid Everywhere: Large-Scale Real-to-Sim Environment and Data Generator for Humanoid Loco-Manipulation
+            </h1>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+              <span class="author-block"><a href="https://junyingw.github.io/">Junying Wang</a><sup>1</sup>,</span>
+              <span class="author-block">Xinjie Chen<sup>1</sup>,</span>
+              <span class="author-block">Yunkai Zhan<sup>1</sup>,</span>
+              <span class="author-block">Junsoo Kim<sup>1</sup>,</span>
+              <span class="author-block"><a href="https://songlin.github.io/">Songlin Wei</a><sup>1</sup>,</span>
+              <span class="author-block">Xulang Guan<sup>1</sup>,</span>
+              <span class="author-block"><a href="https://vitorguizilini.github.io/">Vitor Guizilini</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://zouchuhang.github.io/">Chuhang Zou</a><sup>3</sup>,</span>
+              <span class="author-block"><a href="https://jiageng.me/">Jiageng Mao</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://yuewang.xyz/">Yue Wang</a><sup>1</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>University of Southern California,</span>
+              <span class="author-block"><sup>2</sup>Toyota Research Institute,</span>
+              <span class="author-block"><sup>3</sup>Meta Reality Lab Research</span>
+            </div>
+
+            <div class="publication-links is-flex is-justify-content-center is-flex-wrap-wrap" style="margin-top: 1.5rem;">
+              <a href="./rss_workshop_humanoid_everywhere.pdf" class="external-link button is-dark mx-2 my-1" target="_blank">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+              <a href="#demos" class="external-link button is-dark mx-2 my-1">
+                <span class="icon"><i class="fas fa-video"></i></span>
+                <span>Demos</span>
+              </a>
+              <!-- TODO: add arXiv / code links when available -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Teaser ===================== -->
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body" style="padding: 1rem 0 2.5rem;">
+        <div class="figure-card">
+          <img src="./img/teaser.jpg" alt="Humanoid Everywhere data generator teaser: capture, reconstruction, editing, trajectory generation, VLA policy">
+        </div>
+        <p class="caption has-text-justified">
+          <strong>Humanoid Everywhere data generator.</strong>
+          <em>Top:</em> starting from a user-captured real scene (<strong>Capture</strong>), we obtain the scene's 3DGS and mesh
+          (<strong>Reconstruction</strong>), and apply generative image editing with object-level reconstruction
+          (<strong>Editing</strong>) to compose fully interactive 3D assets into the environment. The asset-loaded environment
+          is then ingested by our Gaussian simulator for physics-grounded trajectory generation
+          (<strong>Trajectory Generation</strong>) to train generalizable robot policies (<strong>VLA Policy</strong>).
+          <em>Bottom:</em> the framework scales across diverse scene captures, generating varied locomotion and manipulation
+          trajectories for downstream policy training.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Abstract ===================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <p class="section-tag has-text-centered">TL;DR</p>
+      <h2 class="title is-3 has-text-centered">Abstract</h2>
+      <p class="content has-text-justified is-size-5-desktop">
+        A fundamental question in robot learning is <em>what data matters most for training generalizable humanoid
+        policies</em>. Addressing this requires frameworks that balance scalability, efficiency, generality, and visual
+        fidelity. We present <strong>Humanoid Everywhere</strong>, an automated Real2Sim data generator for humanoid
+        loco-manipulation. From smartphone captures, our pipeline reconstructs photorealistic scenes via 3D Gaussian
+        Splatting (3DGS) and populates them with foundation-model-generated interactive assets, bypassing manual modeling
+        and per-object scanning. Central to this is a <strong>Compositional Gaussian Simulator</strong> coupling
+        contact-rich physics with efficient rendering to enable whole-body locomotion and dexterous interaction. Guided by
+        text instructions, this auto-generative pipeline continuously outputs fully annotated trajectories&mdash;including
+        states, actions, and multi-view RGB-D. A per-Gaussian relighting module further multiplies visual diversity at
+        sub-linear cost without trajectory re-simulation. By unifying real-world reconstruction, generative assets, and
+        scalable physics, Humanoid Everywhere provides an open-ended data source for Vision-Language-Action (VLA) models,
+        establishing a data flywheel for continual real-world scaling.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="num">1 capture</div>
+          <div class="lbl">smartphone walkthrough &rarr; interactive simulation</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">8,000+</div>
+          <div class="lbl">fully labeled trajectories (9 scenes, 40 tasks)</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">16&ndash;20 FPS</div>
+          <div class="lbl">photorealistic rendering, ~10&ndash;30&times; faster than path tracing</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">M &times; N</div>
+          <div class="lbl">rollouts &times; lighting variants at zero extra trajectory cost</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Goal ===================== -->
+  <section class="section hero is-light-alt">
+    <div class="container is-max-desktop">
+      <p class="section-tag has-text-centered">What we want to achieve</p>
+      <h2 class="title is-3 has-text-centered">Goal</h2>
+
+      <div class="figure-card" style="margin-bottom: 0.75rem;">
+        <video src="./video/our_goal.mp4" autoplay muted loop playsinline controls preload="auto"></video>
+      </div>
+      <p class="caption has-text-justified" style="margin-bottom: 2rem;">
+        <strong>From one smartphone walkthrough to labeled robot data.</strong> A user captures a scene with an iPhone;
+        the pipeline reconstructs a collision mesh (PolyCam) and a photorealistic 3DGS scene, applies text-prompted image
+        editing with object-level 3D reconstruction to compose new interactive assets, and generates physics-grounded task
+        trajectories for the humanoid&mdash;fully automatically.
+      </p>
+
+      <div class="goal-box content has-text-justified">
+        <strong>Turn a single smartphone capture of any real environment into an open-ended, fully labeled supply of
+        contact-rich humanoid loco-manipulation data.</strong> A short walkthrough video becomes a photorealistic,
+        physics-grounded interactive simulation in which a humanoid robot walks, reaches, grasps, and manipulates
+        objects&mdash;continuously emitting trajectories with <em>exact</em> analytical labels (joint states, SE(3) poses,
+        contact forces, synchronized multi-view RGB-D with instance segmentation) ready for Vision-Language-Action policy
+        training.
+      </div>
+
+      <div class="content has-text-justified" style="margin-top: 1.5rem;">
+        <p>
+          The generator is <strong>human-out-of-the-loop</strong>: only three lightweight steps require an operator&mdash;a
+          short capture, choosing which objects to reconstruct, and a text-prompted scene edit (e.g., <em>&ldquo;add a
+          coffee mug and a laptop&rdquo;</em>). Everything else&mdash;reconstruction, asset generation, physics estimation,
+          grasp synthesis, and trajectory generation&mdash;runs automatically. Because new captures and prompts regenerate
+          data exactly where a deployed policy is weakest, the system naturally closes the loop as a post-deployment
+          <strong>data flywheel</strong> toward an &ldquo;Internet for Robots&rdquo;.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Motivation ===================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <p class="section-tag has-text-centered">Why this matters</p>
+      <h2 class="title is-3 has-text-centered">Motivation</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          Robot learning lacks an <em>&ldquo;Internet for Robots&rdquo;</em>: a scalable supply of <em>labeled</em>
+          interaction data. General-purpose humanoid manipulation remains bottlenecked by how data is sourced and
+          annotated. Contemporary efforts fall into two dominant paradigms, each facing a structural limitation:
+        </p>
+      </div>
+
+      <div class="columns is-variable is-4" style="margin-top: 0.5rem;">
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-cogs"></i></div>
+            <h4>Physics-based simulation</h4>
+            <p>
+              Yields cheap, repeatable, explicitly labeled rollouts&mdash;but synthetic assets require unscalable manual
+              CAD authoring, and standard domain randomization discards the subtle depth, material, and geometric cues
+              crucial for precise real-world manipulation.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-film"></i></div>
+            <h4>Generative video world models</h4>
+            <p>
+              Visually faithful, but physics is <em>implicit</em>: no guarantees on contact forces, collision geometry, or
+              friction&mdash;phasing through hands, clipping geometry&mdash;plus noisy state recovery and latency bounds
+              that make large-scale rollout generation impractical for contact-rich tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content has-text-justified" style="margin-top: 1rem;">
+        <p>
+          <strong>Real2Sim via 3DGS: bridging both worlds.</strong> We resolve this trade-off with a dual representation:
+          3D Gaussian Splatting supplies real-world visual richness, while co-registered collision meshes provide the
+          structured geometry required for accurate physical interaction. Explicitly decoupling the visual representation
+          (anisotropic Gaussians) from the geometric one (triangle meshes for collision and rigid-body control) yields both
+          real-world appearance and physically accurate, high-throughput dynamics&mdash;explicit MuJoCo physics for
+          reliable grasp planning and whole-body control, 3DGS for visual fidelity.
+        </p>
+      </div>
+
+      <h3 class="title is-4" style="margin-top: 2rem;">Contributions</h3>
+      <div class="columns is-variable is-4">
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-robot"></i></div>
+            <h4>Automated, human-out-of-the-loop data generator</h4>
+            <p>
+              Fuses real-world grounding (3DGS + mesh), web-scale foundation models (editing, reconstruction, pose,
+              physics), and MuJoCo simulation&mdash;replacing manual teleoperation with scalable trajectory generation.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+            <h4>Multiplicative scaling with exact labels</h4>
+            <p>
+              A single capture expands multiplicatively (scenes &times; objects &times; rollouts &times; lighting) at
+              sub-linear marginal cost, and every frame carries exact analytical labels: joint states, SE(3) poses, and
+              synchronized multi-view RGB-D with instance segmentation.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-cube"></i></div>
+            <h4>Compositional Gaussian Simulator</h4>
+            <p>
+              By explicitly decoupling physics from rendering, the engine populates scenes with unlimited generated assets
+              and re-renders identical rollouts under randomized illumination&mdash;scaling visual diversity without
+              additional capture or simulation compute.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Pipeline ===================== -->
+  <section class="section hero is-light-alt">
+    <div class="container is-max-widescreen">
+      <p class="section-tag has-text-centered">How it works</p>
+      <h2 class="title is-3 has-text-centered">Pipeline</h2>
+
+      <div class="figure-card">
+        <img src="./img/overview.png" alt="Overview of the Humanoid Everywhere framework">
+      </div>
+      <p class="caption has-text-justified">
+        <strong>Overview of the Humanoid Everywhere framework.</strong> Starting from a monocular walkthrough video, the
+        pipeline operates in two primary stages: <strong>(1) 3D asset reconstruction and generation</strong>&mdash;a
+        photorealistic 3DGS base scene is reconstructed, and user-provided text prompts guide 2D image editing for object
+        insertion; inserted objects are extracted and converted into manipulable assets via single-image 3D reconstruction
+        and depth-calibrated 6-DoF pose estimation. <strong>(2) Physics integration and Gaussian
+        simulation</strong>&mdash;generated meshes are decomposed into convex collision geometries, a VLM infers plausible
+        physical parameters, and the compositional 3DGS renderer coupled with MuJoCo dynamics generates diverse
+        contact-rich trajectories with zero-cost visual augmentation.
+      </p>
+
+      <!-- Step 1 -->
+      <div class="pipeline-step" style="margin-top: 3rem;">
+        <h4><span class="step-no">1</span>Scene Capture &amp; Dual Reconstruction</h4>
+        <div class="columns is-vcentered is-variable is-5">
+          <div class="column is-7">
+            <div class="figure-card">
+              <img src="./img/3d_recon.jpg" alt="Scene capture and dual reconstruction: VGGT camera poses and point cloud, PolyCam/TSDF collision mesh, 3DGS training">
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="content has-text-justified">
+              <p>
+                A user records a smartphone walkthrough (RGB frames, LiDAR depth optional). <strong>VGGT</strong> jointly
+                predicts per-frame camera poses and a dense point cloud, while <strong>PolyCam</strong> or TSDF fusion
+                produces a geometric collision mesh with accurate support surfaces. The aligned mesh initializes training
+                of a photorealistic <strong>3DGS scene</strong>; an optional single-step Difix3D+ refinement removes
+                floaters and sharpens renderings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="pipeline-step" style="margin-top: 2.5rem;">
+        <h4><span class="step-no">2</span>Image-Guided Object Generation</h4>
+        <div class="columns is-vcentered is-variable is-5">
+          <div class="column is-5">
+            <div class="content has-text-justified">
+              <p>
+                Following a <em>segment&ndash;calibrate&ndash;reconstruct&ndash;place&ndash;validate</em> pipeline, a
+                rendered view is edited with a text prompt (e.g., Nano Banana) to insert or rearrange objects. Each
+                inserted object is segmented by SAM 2 and lifted by <strong>SAM-3D</strong> into a textured mesh and
+                Gaussian splat; <strong>FoundationPose</strong> estimates the full SE(3) pose and a VLM critic corrects
+                residual yaw, seating each asset on its support surface to form the scene layout.
+              </p>
+            </div>
+          </div>
+          <div class="column is-7">
+            <div class="figure-card">
+              <img src="./img/genai.jpg" alt="Image-guided object generation: text-prompt editing, SAM-3D reconstruction, VLM physical parameters, SE(3) layout estimation">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="pipeline-step" style="margin-top: 2.5rem;">
+        <h4><span class="step-no">3</span>Simulation-Ready Assets</h4>
+        <div class="content has-text-justified">
+          <p>
+            A VLM (Qwen3-VL) infers each object's simulation properties from texture, name, and size: material category,
+            volume-consistent mass, and sliding/torsional/rolling friction. An object joins the asset pool only after a
+            <strong>closed-loop stability check</strong>&mdash;instantiated in MuJoCo with its convex collision geometry
+            (CoACD decomposition) and verified to rest without interpenetration, sliding, or jitter. For each object,
+            <strong>BODex</strong> synthesizes ~20 grasp candidates (wrist SE(3) pose + 7 joint angles for the Unitree
+            Dex3 hand), filtered for reachability from standing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="pipeline-step" style="margin-top: 2.5rem;">
+        <h4><span class="step-no">4</span>Compositional Gaussian Simulator</h4>
+        <div class="figure-card">
+          <img src="./img/gs_simulator.png" alt="Compositional Gaussian Simulator: independent Gaussian sets for background, objects, tables, robot links, composed with MuJoCo physics and per-Gaussian relighting">
+        </div>
+        <p class="caption has-text-justified">
+          The scene is represented as distinct Gaussian sets for the background, articulated robot links, and manipulable
+          objects. MuJoCo simulates contact-rich dynamics, applying time-indexed SE(3) poses to rigidly transform each
+          set. A unified illumination pipeline combines per-Gaussian relighting (albedo recovery + Blinn&ndash;Phong
+          shading) with shadow mapping before final 3DGS rasterization. Within this simulator, an AMO whole-body policy
+          handles bipedal balance and locomotion (legs + waist, 15 DOF) while a motion planner drives the upper body
+          through <code>rest &rarr; pre_reach &rarr; reach_table &rarr; grasp &rarr; lift</code>&mdash;every rollout
+          densely auto-labeled with <em>exact</em> action labels rather than inferred ones.
+        </p>
+
+        <div class="columns is-variable is-5" style="margin-top: 1.5rem;">
+          <div class="column is-6">
+            <div class="figure-card">
+              <img src="./img/shading_compare.jpg" alt="Per-Gaussian dynamic shading and cast shadows comparison: 3DGS only, +Shading, +Shadow+Shading">
+            </div>
+            <p class="caption has-text-justified">
+              <strong>Per-Gaussian dynamic shading &amp; cast shadows.</strong> Naive composition (left) leads to static,
+              mismatched illumination that fails as assets move. Our simulator dynamically re-shades each Gaussian per
+              frame (middle) and integrates cast shadows (right), visually grounding the robot and objects with coherent
+              illumination.
+            </p>
+          </div>
+          <div class="column is-6">
+            <div class="figure-card">
+              <img src="./img/zero-cost-light.jpg" alt="Zero-cost lighting domain randomization: varying light direction, color, and intensity">
+            </div>
+            <p class="caption has-text-justified">
+              <strong>Zero-cost lighting domain randomization.</strong> Because relighting decouples physics from
+              rendering, each physics rollout is re-rendered under randomized illumination&mdash;varying light direction,
+              color, and intensity&mdash;multiplying visual diversity (M rollouts &times; N lighting variants) at marginal
+              rendering cost, without re-simulating the trajectory.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automation table -->
+      <h3 class="title is-4 has-text-centered" style="margin-top: 3rem;">Only 3 of 9 pipeline stages need a human</h3>
+      <div class="table-scroll">
+        <table class="table is-bordered is-striped results-table">
+          <thead>
+            <tr><th>Pipeline stage</th><th>Agent / tool</th><th>Input</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Scene capture</td><td>iPhone video</td><td><strong>User</strong></td></tr>
+            <tr><td>Camera calibration</td><td>VGGT</td><td>Auto</td></tr>
+            <tr><td>3DGS training</td><td>gsplat</td><td>Auto</td></tr>
+            <tr><td>Reconstruction target selection</td><td>operator picks objects</td><td><strong>User</strong></td></tr>
+            <tr><td>Collision mesh</td><td>TSDF / PolyCam + ICP</td><td>Auto</td></tr>
+            <tr><td>Scene editing</td><td>text-to-image</td><td><strong>User</strong></td></tr>
+            <tr><td>Object generation</td><td>SAM-3D + CoACD + Qwen3-VL</td><td>Auto</td></tr>
+            <tr><td>Grasp synthesis</td><td>BODex</td><td>Auto</td></tr>
+            <tr><td>Trajectory generation</td><td>motion planner</td><td>Auto</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption has-text-centered">
+        Only capture, object selection, and the text edit require an operator&mdash;the other six stages run automatically
+        with zero manual 3D modeling or trajectory annotation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== Demos ===================== -->
+  <section class="section" id="demos">
+    <div class="container is-max-widescreen">
+      <p class="section-tag has-text-centered">See it in action</p>
+      <h2 class="title is-3 has-text-centered">Video Demos</h2>
+
+      <h3 class="title is-4" style="margin-top: 1.5rem;">Real2Sim: from smartphone capture to interactive simulation</h3>
+      <div class="figure-card" style="margin-bottom: 0.75rem;">
+        <video src="./video/humanoid_real2sim_web.mp4" controls muted loop playsinline preload="metadata"></video>
+      </div>
+      <p class="caption has-text-centered" style="margin-bottom: 2.5rem;">
+        From a smartphone capture of a real scene to a photorealistic, physics-grounded interactive simulation with
+        humanoid loco-manipulation.
+      </p>
+
+      <h3 class="title is-4" style="margin-top: 2.5rem;">Captured 3DGS scenes</h3>
+      <div class="figure-card" style="margin-bottom: 0.75rem;">
+        <video src="./video/capture_scene.mp4" controls muted loop playsinline preload="metadata"></video>
+      </div>
+      <p class="caption has-text-centered" style="margin-bottom: 2.5rem;">
+        Photorealistic 3DGS reconstructions rendered from smartphone captures across diverse real
+        environments&mdash;offices, kitchens, meeting rooms, markets, and more&mdash;each ready to serve as an interactive
+        simulation environment.
+      </p>
+
+      <h3 class="title is-4" style="margin-top: 2.5rem;">Manipulation: generated assets &amp; egocentric trajectories</h3>
+      <div class="figure-card" style="margin-bottom: 0.75rem;">
+        <video src="./video/manipulation.mp4" controls muted loop playsinline preload="metadata"></video>
+      </div>
+      <p class="caption has-text-centered" style="margin-bottom: 2.5rem;">
+        <em>Left:</em> from a captured view, text-prompted editing inserts objects that are segmented, pose-estimated
+        (FoundationPose), and lifted into meshes and 3DGS assets. <em>Right:</em> the resulting simulation-ready objects
+        support contact-rich manipulation trajectories rendered from the robot's egocentric view.
+      </p>
+
+      <h3 class="title is-4" style="margin-top: 2.5rem;">Loco-grasp in a captured bedroom scene</h3>
+      <div class="figure-card" style="margin-bottom: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <video src="./video/loco_grasp_bedroom.mp4" controls muted loop playsinline preload="metadata"></video>
+      </div>
+      <p class="caption has-text-centered">
+        The Unitree G1 humanoid walks to the target and executes a contact-rich grasp inside the reconstructed 3DGS
+        environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== Results ===================== -->
+  <section class="section hero is-light-alt">
+    <div class="container is-max-widescreen">
+      <p class="section-tag has-text-centered">Experiments</p>
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <!-- Qualitative -->
+      <h3 class="title is-4" style="margin-top: 1.5rem;">Feasible, diverse data &mdash; end to end</h3>
+      <div class="figure-card">
+        <img src="./img/scene_results.jpg" alt="Qualitative results: captured 3DGS scenes, locomotion trajectories, generated 3D assets and manipulation trajectories, zero-cost trajectory replay with domain randomization">
+      </div>
+      <p class="caption has-text-justified">
+        <em>Top:</em> captured 3DGS scenes and locomotion trajectories across diverse real environments.
+        <em>Middle:</em> from a text-edited image we generate manipulable 3D assets and physics-valid manipulation
+        trajectories, rendered with correct novel-view appearance and geometry from egocentric head/wrist views.
+        <em>Bottom:</em> each rollout is replayed through the Gaussian simulator at <strong>zero additional trajectory
+        cost</strong> under domain randomization&mdash;varied distractor layouts, scene lighting, and shading&mdash;
+        multiplying one trajectory into many visually diverse, fully labeled locomotion and manipulation samples.
+      </p>
+
+      <!-- Scalability -->
+      <h3 class="title is-4" style="margin-top: 3rem;">Scalability: many scenes and objects at low marginal cost</h3>
+      <div class="columns is-vcentered is-variable is-5">
+        <div class="column is-6">
+          <div class="figure-card">
+            <img src="./img/ongoing_collection.png" alt="Dataset summary: tasks per scene, trajectory distribution, 9 scenes, 40 tasks, 8000 trajectories">
+          </div>
+          <p class="caption has-text-justified">
+            Tasks per scene, trajectory distribution, and dataset summary. Data collection currently spans
+            <strong>9 scenes</strong> (bedroom, living room, kitchen, office, meeting room, market, factory, outdoor, lab
+            basement), <strong>40 tasks</strong>, and <strong>200 trajectories per task &mdash; 8,000 trajectories</strong>
+            in total, and remains extensible through flexible capture sources.
+          </p>
+        </div>
+        <div class="column is-6">
+          <div class="content has-text-justified">
+            <p>
+              Adding new environments and objects is cheap in <em>human effort</em>: only capture, object selection, and
+              the text edit involve the operator, while reconstruction, asset generation, physics estimation, grasp
+              synthesis, and trajectory generation run automatically. Objects are populated consistently with each scene's
+              real-world scenario&mdash;lamps and thermos in the bedroom, kettles and bowls in the kitchen, laptops and
+              plants in the office, bottles and fruit in the market.
+            </p>
+            <p>
+              All trajectory data&mdash;synchronized multi-view RGB sequences, proprioceptive states, and action
+              tokens&mdash;exports directly to the standardized <strong>LeRobot</strong> dataset format, immediately
+              consumable by modern VLA architectures on a <strong>Unitree G1</strong> humanoid (29-DOF upper body, 12-DOF
+              dexterous hands) with head-stereo and egocentric wrist cameras.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Efficiency -->
+      <h3 class="title is-4" style="margin-top: 3rem;">Efficiency: high-throughput photorealistic rendering</h3>
+      <div class="columns is-vcentered is-variable is-5">
+        <div class="column is-6">
+          <div class="table-scroll">
+            <table class="table is-bordered results-table" style="width: 100%;">
+              <thead>
+                <tr><th>Renderer</th><th>ms / frame</th><th>FPS</th><th>Per trajectory</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Isaac Sim (path-traced)</td><td>~500&ndash;1700</td><td>~0.6&ndash;2</td><td>~3&ndash;10 min</td></tr>
+                <tr class="highlight-row"><td>Ours (3DGS)</td><td>50&ndash;62</td><td>16&ndash;20</td><td>18&ndash;22 s</td></tr>
+                <tr><td>Ours (3DGS + refiner)</td><td>106&ndash;118</td><td>~9</td><td>38&ndash;42 s</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption has-text-justified">
+            Rendering throughput per frame and per 360-frame trajectory at 320&times;240 on a single NVIDIA A6000 Ada GPU.
+            The 3DGS rasterizer sustains substantially higher throughput than path-tracing alternatives while remaining
+            photorealistic.
+          </p>
+        </div>
+        <div class="column is-6">
+          <div class="figure-card">
+            <img src="./img/fps_vs_gaussians.png" alt="Render speed (FPS) versus number of Gaussians, with real-time threshold at about 3 million Gaussians">
+          </div>
+          <p class="caption has-text-justified">
+            Render speed scales predictably with scene complexity, reaching real-time (30 FPS) at ~3M Gaussians. Because
+            rendering is decoupled from physics, generating <em>N</em> relit variants requires only <em>N</em> rendering
+            passes over a single physics rollout&mdash;scalable visual diversification at minimal additional compute.
+          </p>
+        </div>
+      </div>
+
+      <!-- Data quality -->
+      <h3 class="title is-4" style="margin-top: 3rem;">Data quality: high-quality by construction</h3>
+      <div class="columns is-variable is-4">
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-bullseye"></i></div>
+            <h4>Exact labels</h4>
+            <p>
+              Every rollout is simulated, so joint states, per-link and object SE(3) poses, contact forces, and instance
+              segmentation are read directly from the engine&mdash;no pose-estimation noise from video or human
+              demonstrations.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-check-double"></i></div>
+            <h4>Physical validity</h4>
+            <p>
+              Each object passes a closed-loop stability check before entering the asset pool, so contacts and rest poses
+              are simulation-consistent throughout every generated trajectory.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="contrib-card">
+            <div class="icon-circle"><i class="fas fa-camera"></i></div>
+            <h4>Photorealism</h4>
+            <p>
+              Per-Gaussian shading and cast shadows keep composited objects and the robot illumination-coherent with the
+              captured scene, narrowing the visual domain gap relative to synthetic-mesh rendering.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unbounded scaling -->
+      <h3 class="title is-4" style="margin-top: 3rem;">Toward unbounded scaling</h3>
+      <div class="content has-text-justified">
+        <p>
+          User capture is not even strictly required: an input image&mdash;captured <em>or</em> generated&mdash;can be
+          expanded by a video world model (e.g., Genie 3) into a complete 3DGS scene, then populated with unlimited
+          generated objects in varied layouts and loaded into the simulator for trajectory generation. This removes
+          per-scene capture effort entirely and points toward generating fully labeled data <strong>without bound</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BibTeX ===================== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
+      <div class="content" style="max-width: 900px; margin: 0 auto;">
+        <pre><code>@inproceedings{wang2026humanoideverywhere,
+  title     = {Humanoid Everywhere: Large-Scale Real-to-Sim Environment and Data Generator
+               for Humanoid Loco-Manipulation},
+  author    = {Wang, Junying and Chen, Xinjie and Zhan, Yunkai and Kim, Junsoo and Wei, Songlin
+               and Guan, Xulang and Guizilini, Vitor and Zou, Chuhang and Mao, Jiageng and Wang, Yue},
+  booktitle = {RSS 2026 Workshop on Data-Centric Robotics},
+  year      = {2026}
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="footer" style="padding: 2rem 1.5rem;">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered footer-note">
+        <p>
+          Website template adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>, licensed under
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
