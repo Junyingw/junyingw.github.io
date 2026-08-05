@@ -1,61 +1,97 @@
-<html>
-<head>
-<style>
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Junying Wang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./style/bootstrap.min.css" />
 
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./style/styles.css" />
 
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
-</head>
-<body>
+    <style>
+      div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
 
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
 
-<div class="gallery">
-  <a target="_blank" href="./images/dog1.jpg">
-    <img src="./images/dog1.jpg">
-  </a>
-</div>
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
 
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+    </style>
+  </head>
 
-<div class="gallery">
-  <a target="_blank" href="./images/dog2.jpg">
-    <img src="./images/dog2.jpg">
-  </a>
-</div>
+  <body>
+    <div class="my-container">
+      <h1>Junying Wang</h1>
 
-<div class="gallery">
-  <a target="_blank" href="./images/dog3.jpg">
-    <img src="./images/dog3.jpg">
-  </a>
-</div>
+      <!-- Nav -->
+      <div
+        class="btn-group btn-group-justified"
+        role="group"
+        aria-label="Justified button group"
+      >
+        <a href="index.html" class="btn btn-default" role="button">Home</a>
+        <a href="project.html" class="btn btn-default" role="button">Projects</a>
+        <a href="portfolio.html" class="btn btn-default" role="button">Portfolio</a>
+        <a
+          href="https://medium.com/@junyingw"
+          class="btn btn-default"
+          role="button"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Blog</a
+        >
+      </div>
 
-<div class="gallery">
-  <a target="_blank" href="./images/dog4.jpg">
-    <img src="./images/dog4.jpg">
-  </a>
-</div>
+      <div class="content">
+        <h3>My Puppies</h3>
+        <hr />
 
-<div class="gallery">
-  <a target="_blank" href="./images/dog5.jpg">
-    <img src="./images/dog5.jpg">
-  </a>
-</div>
+        <div class="gallery">
+          <a target="_blank" rel="noopener noreferrer" href="./images/dog1.jpg">
+            <img src="./images/dog1.jpg" alt="My puppy" loading="lazy" />
+          </a>
+        </div>
 
-</body>
+        <div class="gallery">
+          <a target="_blank" rel="noopener noreferrer" href="./images/dog2.jpg">
+            <img src="./images/dog2.jpg" alt="My puppy" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" rel="noopener noreferrer" href="./images/dog3.jpg">
+            <img src="./images/dog3.jpg" alt="My puppy" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" rel="noopener noreferrer" href="./images/dog4.jpg">
+            <img src="./images/dog4.jpg" alt="My puppy" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" rel="noopener noreferrer" href="./images/dog5.jpg">
+            <img src="./images/dog5.jpg" alt="My puppy" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
